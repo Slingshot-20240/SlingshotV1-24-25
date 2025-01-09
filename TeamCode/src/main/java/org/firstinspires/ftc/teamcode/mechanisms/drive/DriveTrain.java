@@ -28,10 +28,10 @@ public class DriveTrain {
     private double targetAngle = 0;
 
     // public while being tuned on dashboard
-    public static double turnP = 0.04;
+    public static double turnP = 0.013;
     public static double turnI = 0;
-    public static double turnD = 0.003;
-    public static double turnF = 0.00001;
+    public static double turnD = 0.0001;
+    public static double turnF = 0;
     private PIDFControllerEx turnController = new PIDFControllerEx(turnP, turnI, turnD, turnF);
 
     private DriveMode driveMode;
@@ -90,6 +90,8 @@ public class DriveTrain {
         leftBack = lB;
         rightBack = rB;
         this.imu = imu;
+
+        driveMode = DriveMode.ROBO_CENTRIC;
     }
 
     public void update() {
@@ -101,6 +103,10 @@ public class DriveTrain {
             moveFieldCentric(strafe, drive, turn, getHeading());
         } else if (driveMode.equals(DriveMode.ROBO_CENTRIC)){
             moveRoboCentric(-strafe, drive, -turn);
+        }
+
+        if (controls.lockedMode.value()) {
+            lockedHeadingMode = !lockedHeadingMode;
         }
 
         if (lockedHeadingMode) {

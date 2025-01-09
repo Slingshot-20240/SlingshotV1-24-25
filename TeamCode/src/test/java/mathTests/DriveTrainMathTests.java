@@ -149,20 +149,20 @@ public class DriveTrainMathTests {
     }
 
     // This test also has a very small error, likely human error
-//    @Test
-//    public void testUltrasonicsWith45RobotAngleSideSensor() {
-//        // target distance = sensing distance + y offset (works with formula) = 13
-//        // RobotAngle is 45
-//        // sensing distance = 8.276472679
-//        double robotAngle = 45;
-//        ultrasonics = new ReLocalizer(backDS, sideDS, imu);
-//
-//        // this calls getDistance on the sensor, so I need to implement that method
-//        when(sideDS.getDistance(DistanceUnit.INCH)).thenReturn(8.276472679);
-//
-//        double targetDistance = ultrasonics.getSideDistance(robotAngle);
-//
-//        double sensingDistance = 8.276472679 + (-0.2); // this is the output from the senor itself, in inches from center, + x offset to get the distance from the object to the center
-//        assertEquals(sensingDistance, targetDistance);
-//    }
+    @Test
+    public void testUltrasonicsWith45RobotAngleSideSensor() {
+        // target distance = sensing distance + y offset (works with formula) = 13
+        // RobotAngle is 45
+        // sensing distance = 8.276472679
+        double robotAngle = 45;
+        ultrasonics = new ReLocalizer(backDS, sideDS, imu);
+
+        // this calls getDistance on the sensor, so I need to implement that method
+        when(sideDS.getDistance(DistanceUnit.INCH)).thenReturn(8.276472679);
+
+        double targetDistance = ultrasonics.getSideDistance(robotAngle);
+
+        double sensingDistance = 8.276472679 + (-0.2); // this is the output from the senor itself, in inches from center, + x offset to get the distance from the object to the center
+        assertEquals(sensingDistance, targetDistance);
+    }
 }

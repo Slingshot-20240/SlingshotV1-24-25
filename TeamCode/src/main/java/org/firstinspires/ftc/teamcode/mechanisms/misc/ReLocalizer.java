@@ -41,7 +41,7 @@ public class ReLocalizer {
 
     public double getSideDistance(double robotAngle) {
         robotAngle = Math.toRadians(robotAngle);
-        double targetDistance = Math.sin(offsetAngleS - robotAngle) * offDistS + Math.sin(robotAngle) * sideDS.getDistance(DistanceUnit.INCH);
+        double targetDistance = Math.cos(offsetAngleS - robotAngle) * offDistS + Math.sin(robotAngle) * sideDS.getDistance(DistanceUnit.INCH);
         return targetDistance;
     }
 }

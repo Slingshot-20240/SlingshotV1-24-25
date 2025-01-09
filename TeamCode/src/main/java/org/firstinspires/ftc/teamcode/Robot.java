@@ -6,6 +6,7 @@ import com.qualcomm.robotcore.hardware.IMU;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 import org.firstinspires.ftc.teamcode.mechanisms.drive.DriveTrain;
+import org.firstinspires.ftc.teamcode.mechanisms.misc.ReLocalizer;
 import org.firstinspires.ftc.teamcode.mechanisms.specimen.SpecimenClaw;
 import org.firstinspires.ftc.teamcode.misc.gamepad.GamepadMapping;
 import org.firstinspires.ftc.teamcode.mechanisms.intake.Intake;
@@ -77,6 +78,15 @@ public class Robot{
         outtake = new Outtake(hardwareMap, 0, 0.012, 0, 0.0001, 0.03, telemetry, controls); // tune PID values
         //ultraSonics = new ReLocalizer(hardwareMap, imu);
         specimenClaw = new SpecimenClaw(hardwareMap);
+    }
+
+    // this is for junit testing only
+    public Robot(GamepadMapping controls, DriveTrain drivetrain, Outtake outtake, Intake intake, SpecimenClaw specimenClaw) {
+        this.controls = controls;
+        this.drivetrain = drivetrain;
+        this.outtake = outtake;
+        this.intake = intake;
+        this.specimenClaw = specimenClaw;
     }
 
 //    public Pose2d reLocalize(){

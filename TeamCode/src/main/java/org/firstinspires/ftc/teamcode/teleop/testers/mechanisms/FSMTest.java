@@ -52,6 +52,6 @@ public class FSMTest extends OpMode {
     public void loop() {
         // already does dt & controls.update();
         cycle.activeIntakeUpdate();
-        telemetry.addData("transferState", cycle.transferState.stateName());
+        //telemetry.addData("transferState", cycle.getState().stateName());
     }
 }

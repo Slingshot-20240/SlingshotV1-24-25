@@ -40,4 +40,5 @@ public class Toggle {
     public boolean risingEdge() { return risingEdge; }
     public boolean fallingEdge() { return fallingEdge; }
     public boolean locked() { return buttonLock; }
+    public void setLocked(boolean locked) { this.buttonLock = locked; }
 }

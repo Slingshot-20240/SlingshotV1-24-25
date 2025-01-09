@@ -71,6 +71,7 @@ public class GamepadMapping {
     public static boolean lock180 = false;
     public static boolean lock270 = false;
     public static boolean lock360 = false;
+    public static Toggle lockedMode;
 
     // OTHER
     // --------------
@@ -85,6 +86,8 @@ public class GamepadMapping {
     public GamepadMapping(Gamepad gamepad1, Gamepad gamepad2) {
         this.gamepad1 = gamepad1;
         this.gamepad2 = gamepad2;
+
+        lockedMode = new Toggle(false);
 
         // INTAKE
         extend = new Toggle(false);
@@ -144,7 +147,7 @@ public class GamepadMapping {
 
         activeIntakeUpdate();
 
-        slowMode.update(gamepad1.left_bumper);
+        lockedMode.update(gamepad2.x);
 
         extend.update(gamepad1.right_bumper);
         // This is only when Souren drives

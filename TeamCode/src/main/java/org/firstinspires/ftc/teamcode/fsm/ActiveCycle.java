@@ -15,7 +15,7 @@ public class ActiveCycle {
     private GamepadMapping controls;
     private Robot robot;
     private SpecimenClaw specimenClaw;
-    public ActiveCycle.TransferState transferState;
+    private ActiveCycle.TransferState transferState;
     private Telemetry telemetry;
     private ElapsedTime loopTime;
     private double startTime;
@@ -258,6 +258,14 @@ public class ActiveCycle {
                 break;
         }
     }
+
+    public TransferState getState() {
+        return transferState;
+    }
+    public void setState(TransferState newState) {
+        transferState = newState;
+    }
+
     public enum TransferState {
         BASE_STATE("BASE_STATE"),
         EXTENDO_FULLY_RETRACTED("EXTENDO_FULLY_RETRACTED"),

@@ -52,7 +52,7 @@ public class OldAuton04 extends LinearOpMode {
                 //preload to bucket
                 .splineToLinearHeading(new Pose2d(-55,-57,Math.toRadians(45)),Math.toRadians(225))
                 .setReversed(false)
-                .back(4)
+                .back(5)
                 .UNSTABLE_addTemporalMarkerOffset(0, () -> {
                     //flip bucket
                     outtake.bucketDeposit();
@@ -65,7 +65,8 @@ public class OldAuton04 extends LinearOpMode {
                 })
 
                 //1st yellow to bucket
-                .lineToConstantHeading(new Vector2d(-54, -52))
+                //.lineToConstantHeading(new Vector2d(-54, -52))
+                .forward(4)
                 .turn(Math.toRadians(35))
 //                .splineToLinearHeading(new Pose2d(-50,-59,Math.toRadians(90)),Math.toRadians(45))
 
@@ -86,7 +87,7 @@ public class OldAuton04 extends LinearOpMode {
                     deextend();
                 })
                 .setReversed(true)
-                .splineToLinearHeading(new Pose2d(-52,-56,Math.toRadians(45)),Math.toRadians(225))
+                .splineToLinearHeading(new Pose2d(-54,-56,Math.toRadians(45)),Math.toRadians(225))
 
                 .setReversed(false)
                 .UNSTABLE_addTemporalMarkerOffset(0.2, () -> {
@@ -116,7 +117,7 @@ public class OldAuton04 extends LinearOpMode {
 
                 //MNEXT SAMPLE - second yellow
 //                .splineToLinearHeading(new Pose2d(-55,-60,Math.toRadians(90)),Math.toRadians(45))
-                .lineToConstantHeading(new Vector2d(-56, -52))
+                .lineToConstantHeading(new Vector2d(-57, -52))
                 .turn(Math.toRadians(51))
                 .UNSTABLE_addTemporalMarkerOffset(0, () -> {
                     extendoIntake();
