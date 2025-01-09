@@ -7,8 +7,8 @@ import com.qualcomm.robotcore.hardware.IMU;
 import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 
 public class ReLocalizer {
-    private DistanceSensor backDS;
-    private DistanceSensor sideDS;
+    public DistanceSensor backDS;
+    public DistanceSensor sideDS;
     private IMU imu;
 
     // S = side sensor
