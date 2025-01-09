@@ -101,6 +101,17 @@ public class birdsEyeSampleSearch implements VisionProcessor {
 
                 }else{
                     result = ((hsv[0] > 25 && hsv[0] < 50) && hsv[1] > 60 && hsv[2] > 50) ? 255 : 0;
+//                    int top = Math.min(y,10);
+//                    int bot = Math.min((int)frameSize.height-y,10);
+//                    int left = Math.min(x,10);
+//                    int right = Math.min((int)frameSize.width-x,10);
+//                    double total = 0;
+//                    telemetry.addLine(String.format("t: %s, b: %s, l: %s, r:%s", top, bot, left, right));
+//                    Mat submat = convertedFrame.submat(y-top, y+bot, x-left, x+right);
+//                    total = this.HSVcalc(Core.mean(submat).val)[1];
+//                    telemetry.addLine(String.format("mean: %s, rs: %s, re: %s, cs: %s, ce: %s", total, y-top, y+bot, x-left, x+right));
+
+//                    result /= total;
                 }
                 //set all pixels to white/black
                 colorAtPoint[0]=colorAtPoint[1]=colorAtPoint[2]=result;
