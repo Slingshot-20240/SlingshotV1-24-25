@@ -19,12 +19,12 @@ public class UltrasonicTelemetry extends OpMode {
     private GamepadMapping controls;
     double backTarget;
     double sideTarget;
-    private Telemetry telemetry;
+    private Telemetry dashboardTelemetry;
     @Override
     public void init() {
         controls = new GamepadMapping(gamepad1, gamepad2);
         robot = new Robot(hardwareMap, telemetry, controls);
-        telemetry = new MultipleTelemetry(this.telemetry, FtcDashboard.getInstance().getTelemetry());
+        dashboardTelemetry = new MultipleTelemetry(this.telemetry, FtcDashboard.getInstance().getTelemetry());
     }
 
     @Override
@@ -34,18 +34,18 @@ public class UltrasonicTelemetry extends OpMode {
         sideTarget = robot.ultraSonics.getSideDistance(robot.imu.getRobotYawPitchRollAngles().getYaw(AngleUnit.DEGREES));
 
         // remember to go and change the equation to what you're using & the constants too
-        telemetry.addData("Back Calculated Distance", backTarget);
-        telemetry.addData("Side Calculated Distance", backTarget);
+        dashboardTelemetry .addData("Back Calculated Distance", backTarget);
+        dashboardTelemetry .addData("Side Calculated Distance", backTarget);
 
-        telemetry.addLine(" ");
+        dashboardTelemetry .addLine(" ");
 
         // these are the sensed distances
-        telemetry.addData("Back Sensed Distance", robot.ultraSonics.backDS.getDistance(DistanceUnit.INCH));
-        telemetry.addData("Side Sensed Distance", robot.ultraSonics.sideDS.getDistance(DistanceUnit.INCH));
+        dashboardTelemetry .addData("Back Sensed Distance", robot.ultraSonics.backDS.getDistance(DistanceUnit.INCH));
+        dashboardTelemetry .addData("Side Sensed Distance", robot.ultraSonics.sideDS.getDistance(DistanceUnit.INCH));
 
-        telemetry.addLine(" ");
+        dashboardTelemetry .addLine(" ");
 
         // other
-        telemetry.addData("Current Angle", robot.imu.getRobotYawPitchRollAngles().getYaw(AngleUnit.DEGREES));
+        dashboardTelemetry .addData("Current Angle", robot.imu.getRobotYawPitchRollAngles().getYaw(AngleUnit.DEGREES));
     }
 }

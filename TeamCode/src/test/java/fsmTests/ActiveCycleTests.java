@@ -122,8 +122,14 @@ public class ActiveCycleTests {
 
         cycle.activeIntakeUpdate();
 
-        assertEquals(ActiveCycle.TransferState.TRANSFERING, cycle.getState());
+        controls.transfer.setLocked(true);
 
         verify(rollerMotor).setPower(anyDouble());
+
+        controls.transfer.setLocked(false);
+
+        cycle.activeIntakeUpdate();
+
+        assertEquals(ActiveCycle.TransferState.EXTENDO_FULLY_RETRACTED, cycle.getState());
     }
 }
