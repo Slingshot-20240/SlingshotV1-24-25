@@ -60,24 +60,24 @@ public class Robot{
     public Robot(HardwareMap hardwareMap, Telemetry telemetry, GamepadMapping controls) {
         imu = hardwareMap.get(IMU.class, "imu");
         // params for slingshot robot
-//        IMU.Parameters parameters = new IMU.Parameters(new RevHubOrientationOnRobot(
-//                RevHubOrientationOnRobot.LogoFacingDirection.UP,
-//                RevHubOrientationOnRobot.UsbFacingDirection.LEFT));
-
- //          params for papaya (tester bot)
         IMU.Parameters parameters = new IMU.Parameters(new RevHubOrientationOnRobot(
                 RevHubOrientationOnRobot.LogoFacingDirection.UP,
-                RevHubOrientationOnRobot.UsbFacingDirection.RIGHT));
+                RevHubOrientationOnRobot.UsbFacingDirection.LEFT));
+
+ //          params for papaya (tester bot)
+//        IMU.Parameters parameters = new IMU.Parameters(new RevHubOrientationOnRobot(
+//                RevHubOrientationOnRobot.LogoFacingDirection.UP,
+//                RevHubOrientationOnRobot.UsbFacingDirection.RIGHT));
         // Without this, the REV Hub's orientation is assumed to be logo up / USB forward
         imu.initialize(parameters);
         // will reset imu before auton only, in resetHardware
 
         this.controls = controls;
         drivetrain = new DriveTrain(hardwareMap, imu, telemetry, controls);
-        // intake = new Intake(hardwareMap, telemetry, controls);
-        // outtake = new Outtake(hardwareMap, 0, 0.012, 0, 0.0001, 0.03, telemetry, controls); // tune PID values
+        intake = new Intake(hardwareMap, telemetry, controls);
+        outtake = new Outtake(hardwareMap, 0, 0.012, 0, 0.0001, 0.03, telemetry, controls); // tune PID values
         ultraSonics = new ReLocalizer(hardwareMap, imu);
-//        specimenClaw = new SpecimenClaw(hardwareMap);
+        specimenClaw = new SpecimenClaw(hardwareMap);
     }
 
     // this is for junit testing only
