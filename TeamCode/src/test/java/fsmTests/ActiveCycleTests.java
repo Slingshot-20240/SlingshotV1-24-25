@@ -132,4 +132,27 @@ public class ActiveCycleTests {
 
         assertEquals(ActiveCycle.TransferState.EXTENDO_FULLY_RETRACTED, cycle.getState());
     }
+
+
+    @Test
+    public void testInRetractedToHighBasket() {
+        cycle.setState(ActiveCycle.TransferState.EXTENDO_FULLY_RETRACTED);
+
+        controls.extend.set(false);
+        // hold transfer button
+        controls.highBasket.setLocked(true);
+
+        cycle.activeIntakeUpdate();
+
+        controls.highBasket.setLocked(true);
+
+        verify(rollerMotor).setPower(anyDouble());
+
+        controls.highBasket.setLocked(false);
+
+        cycle.activeIntakeUpdate();
+
+        assertEquals(ActiveCycle.TransferState.EXTENDO_FULLY_RETRACTED, cycle.getState());
+    }
+
 }

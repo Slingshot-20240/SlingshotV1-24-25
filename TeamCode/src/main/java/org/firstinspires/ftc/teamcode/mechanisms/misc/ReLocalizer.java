@@ -13,11 +13,11 @@ public class ReLocalizer {
 
     // S = side sensor
     // B = back sensor
-    private final double yBOffset = -5, xBOffset = -5.65, ySOffset = -0.2, xSOffset = 5.75;
+    private final double yBOffset = -5.7, xBOffset = -2.1, ySOffset = -0.2, xSOffset = 5.75;
 
     private double offDistB = Math.sqrt(Math.pow(xBOffset, 2) + Math.pow(yBOffset, 2));
     private double offDistS = Math.sqrt(Math.pow(xSOffset, 2) + Math.pow(ySOffset, 2));
-    private double offsetAngleB = Math.atan(-yBOffset/xBOffset);
+    private double offsetAngleB = Math.atan(yBOffset/xBOffset);
     private double offsetAngleS = Math.atan(xSOffset/-ySOffset);
 
     public ReLocalizer(HardwareMap hardwareMap, IMU usedImu){
