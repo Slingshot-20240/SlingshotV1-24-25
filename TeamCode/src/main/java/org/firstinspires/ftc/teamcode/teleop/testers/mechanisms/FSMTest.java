@@ -16,6 +16,7 @@ public class FSMTest extends OpMode {
     private Robot robot;
     private Intake intake;
     private Outtake outtake;
+    private long previousTime;
 
     @Override
     public void init() {
@@ -49,9 +50,21 @@ public class FSMTest extends OpMode {
 //    }
 
     @Override
+    public void start() {
+        previousTime = System.currentTimeMillis();
+    }
+
+    @Override
     public void loop() {
         // already does dt & controls.update();
         cycle.activeIntakeUpdate();
         //telemetry.addData("transferState", cycle.getState().stateName());
+
+        long currentTime = System.currentTimeMillis();
+        long loopTime = currentTime - previousTime;
+        previousTime = currentTime;
+        telemetry.addData("Loop Time (ms)", loopTime);
+        telemetry.addData("Loop Rate (hz)", 1000 / loopTime);
+        telemetry.update();
     }
 }

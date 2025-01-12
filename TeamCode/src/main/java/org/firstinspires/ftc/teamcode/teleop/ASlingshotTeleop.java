@@ -12,6 +12,8 @@ public class ASlingshotTeleop extends OpMode {
     private GamepadMapping controls;
     private ActiveCycle cycle;
     private Robot robot;
+    private long previousTime;
+
     @Override
     public void init() {
         controls = new GamepadMapping(gamepad1, gamepad2);
@@ -39,10 +41,19 @@ public class ASlingshotTeleop extends OpMode {
         // run once when we start
         robot.hardwareSoftReset();
         robot.intake.extendoFullRetract();
+
+        previousTime = System.currentTimeMillis();
     }
 
     @Override
     public void loop() {
         cycle.activeIntakeUpdate();
+
+        long currentTime = System.currentTimeMillis();
+        long loopTime = currentTime - previousTime;
+        previousTime = currentTime;
+        telemetry.addData("Loop Time (ms)", loopTime);
+        telemetry.addData("Loop Rate (hz)", 1000 / loopTime);
+        telemetry.update();
     }
 }
