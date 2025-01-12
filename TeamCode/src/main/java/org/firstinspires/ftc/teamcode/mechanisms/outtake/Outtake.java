@@ -17,7 +17,8 @@ public class Outtake {
     private static double p, i, d; //has to be tuned
     private static double f; // usually mass moved * constant G
     // BUCKET
-    public Servo bucketServo;
+    public Servo rightBucketServo;
+    public Servo leftBucketServo;
 
     // OTHER
     Telemetry telemetry;
@@ -30,7 +31,8 @@ public class Outtake {
         outtakeSlideLeft.setZeroPowerBehavior(DcMotorEx.ZeroPowerBehavior.BRAKE);
         outtakeSlideRight.setZeroPowerBehavior(DcMotorEx.ZeroPowerBehavior.BRAKE);
 
-        bucketServo = hardwareMap.get(Servo.class, "bucketServo");
+        rightBucketServo = hardwareMap.get(Servo.class, "rightBucketServo");
+        leftBucketServo = hardwareMap.get(Servo.class, "leftBucketServo");
 
         if(direction == 0){
             outtakeSlideLeft.setDirection(DcMotorEx.Direction.FORWARD);
@@ -49,10 +51,11 @@ public class Outtake {
     }
 
     // this is for J-Unit testing only
-    public Outtake(DcMotorEx slidesMotorLeft, DcMotorEx slidesMotorRight, Servo bucketServo, PIDController controller) {
+    public Outtake(DcMotorEx slidesMotorLeft, DcMotorEx slidesMotorRight, Servo rightBucketServo, Servo leftBucketServo, PIDController controller) {
         this.outtakeSlideLeft = slidesMotorLeft;
         this.outtakeSlideRight = slidesMotorRight;
-        this.bucketServo = bucketServo;
+        this.rightBucketServo = rightBucketServo;
+        this.leftBucketServo = leftBucketServo;
         this.controller = controller;
     }
 
@@ -116,15 +119,18 @@ public class Outtake {
     }
 
     public void bucketToReadyForTransfer() {
-        bucketServo.setPosition(OuttakeConstants.BucketPositions.TRANSFER_READY.getBucketPos());
+        rightBucketServo.setPosition(OuttakeConstants.BucketPositions.TRANSFER_READY.getRightBucketPos());
+        leftBucketServo.setPosition(OuttakeConstants.BucketPositions.TRANSFER_READY.getLeftBucketPos());
     }
 
     public void bucketDeposit() {
-        bucketServo.setPosition(OuttakeConstants.BucketPositions.DEPOSIT.getBucketPos());
+        rightBucketServo.setPosition(OuttakeConstants.BucketPositions.DEPOSIT.getRightBucketPos());
+        leftBucketServo.setPosition(OuttakeConstants.BucketPositions.DEPOSIT.getLeftBucketPos());
     }
 
     public void bucketTilt() {
-        bucketServo.setPosition(OuttakeConstants.BucketPositions.TILT.getBucketPos());
+        rightBucketServo.setPosition(OuttakeConstants.BucketPositions.TILT.getRightBucketPos());
+        leftBucketServo.setPosition(OuttakeConstants.BucketPositions.TILT.getLeftBucketPos());
     }
 
     public void hang() {

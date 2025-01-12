@@ -7,7 +7,8 @@ public class OuttakeConstants {
 
     // transfer ready, tilt, deposit
     //.95 for transfer previously
-    private static double[] bucketPositions = {0, .2, .35};
+    private static double[] leftBucketPositions = {.982, .8, .58};
+    private static double[] rightBucketPositions = {1, .823, .603};
 
     // Retracted, low basket, high basket, specimen high rack, spec mini raise
     private static double[] slidePositions = {0, 1200, 2550, 1400, 1400, 200}; // mini extend
@@ -30,18 +31,23 @@ public class OuttakeConstants {
     }
 
     public enum BucketPositions {
-        TRANSFER_READY(bucketPositions[0]),
-        TILT(bucketPositions[1]),
-        DEPOSIT(bucketPositions[2]);
+        TRANSFER_READY(leftBucketPositions[0], rightBucketPositions[0]),
+        TILT(leftBucketPositions[1], rightBucketPositions[1]),
+        DEPOSIT(leftBucketPositions[2], rightBucketPositions[2]);
 
-        private final double bucketPos;
+        private final double leftBucketPos;
+        private final double rightBucketPos;
 
-        BucketPositions(double bucketPos) {
-            this.bucketPos = bucketPos;
+        BucketPositions(double lBucketPos, double rBucketPos) {
+            this.leftBucketPos = lBucketPos;
+            this.rightBucketPos = rBucketPos;
         }
 
-        public double getBucketPos() {
-            return bucketPos;
+        public double getRightBucketPos() {
+            return rightBucketPos;
+        }
+        public double getLeftBucketPos() {
+            return leftBucketPos;
         }
     }
 

@@ -43,7 +43,8 @@ public class Robot{
     // outtake:
     // slideLeft = expansion 3
     // slideRight = expansion 2
-    // bucketServo = 2 control
+    // bucketServoRight = 3 expansion
+    // bucketServoLeft = 5 expansion
 
     // spec:
     // spec claw = 1 on control hub

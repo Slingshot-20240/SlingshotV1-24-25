@@ -3,10 +3,9 @@ package org.firstinspires.ftc.teamcode.teleop.testers.servos;
 import com.acmerobotics.dashboard.config.Config;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-import com.qualcomm.robotcore.hardware.Servo;
-import com.qualcomm.robotcore.hardware.ServoImplEx;
 
 import org.firstinspires.ftc.teamcode.mechanisms.outtake.Outtake;
+import org.firstinspires.ftc.teamcode.mechanisms.outtake.OuttakeConstants;
 import org.firstinspires.ftc.teamcode.misc.gamepad.GamepadMapping;
 
 @Config
@@ -14,12 +13,15 @@ import org.firstinspires.ftc.teamcode.misc.gamepad.GamepadMapping;
 public class BucketServoTest extends OpMode {
     private GamepadMapping controls;
     private Outtake outtake;
-    public static double servoPos;
+    public static double lservoPos;
+    public static double rservoPos;
     @Override
     public void init() {
         controls = new GamepadMapping(gamepad1, gamepad2);
         outtake = new Outtake(hardwareMap, 0, 0, 0, 0, 0, telemetry, controls);
-        outtake.bucketServo.setPosition(0);
+        outtake.rightBucketServo.setPosition(1);
+        outtake.leftBucketServo.setPosition(.982);
+
     }
 
     @Override
@@ -27,7 +29,9 @@ public class BucketServoTest extends OpMode {
 //        servoPos += gamepad1.left_stick_y * speed;
 //        servoPos = Math.min(Math.max(servoPos, 0.0), 1.0);
 
-        outtake.bucketServo.setPosition(servoPos);
+        //outtake.rightBucketServo.setPosition(servoPos);
+        outtake.leftBucketServo.setPosition(lservoPos);
+        outtake.rightBucketServo.setPosition(rservoPos);
 
 
 //        telemetry.addLine("Bucket Servo Test");
@@ -35,8 +39,4 @@ public class BucketServoTest extends OpMode {
 //        telemetry.addData("servoLeft: ", servoPos);
 //        telemetry.addData("y: ", -gamepad1.left_stick_y);
     }
-
-    // deposit: 0
-    // tilt: .5477610423136522
-    // transfer ready: .7231126346979301
 }

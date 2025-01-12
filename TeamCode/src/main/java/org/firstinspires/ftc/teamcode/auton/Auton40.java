@@ -70,16 +70,18 @@ public class Auton40 extends LinearOpMode {
                 //pickup #1
                 .UNSTABLE_addTemporalMarkerOffset(0, () -> {
 //                    semi-extend
-                    moveExtendo(0.2);
+                    moveExtendo(0.17);
                 })
-                .UNSTABLE_addTemporalMarkerOffset(0.2, () -> {
+                .UNSTABLE_addTemporalMarkerOffset(0.25, () -> {
 //                                            pivot intake
                     intake.activeIntake.flipDownFull();
                     intake.activeIntake.motorRollerOnToIntake();
                 })
 
-                .splineToSplineHeading(new Pose2d(24,-33, Math.toRadians(16)), Math.toRadians(16))
-                .forward(11.5)
+
+                .splineToSplineHeading(new Pose2d(24,-37, Math.toRadians(17.5)), Math.toRadians(17.5))
+                .forward(12)
+                .waitSeconds(.1)
 
 
                 //O-zone #1
@@ -129,7 +131,6 @@ public class Auton40 extends LinearOpMode {
                 })
                 .UNSTABLE_addTemporalMarkerOffset(0.3, () -> {
                     intake.activeIntake.motorRollerOff();
-                    intake.activeIntake.flipToTransfer();
                     intake.extendoFullRetract();
                 })
                 .waitSeconds(0.2)
@@ -138,32 +139,32 @@ public class Auton40 extends LinearOpMode {
 
 //                //pickup #3
 //
-//                .UNSTABLE_addTemporalMarkerOffset(0.16, () -> {
-//                    intake.activeIntake.motorRollerOnToIntake();
-//                })
-//                .setReversed(false)
-//                .UNSTABLE_addDisplacementMarkerOffset(7, () -> {
-////                                            intake
-//                    moveExtendo(0.04);
-//                })
-//                .lineToLinearHeading(new Pose2d(42,-36, Math.toRadians(29)))
-//                .waitSeconds(0.1)
-//
-//                .UNSTABLE_addTemporalMarkerOffset(0, () -> {
-//                    moveExtendo(0.18);
-//                })
-//                .waitSeconds(0.2)
+                .UNSTABLE_addTemporalMarkerOffset(0.16, () -> {
+                    intake.activeIntake.motorRollerOnToIntake();
+                })
+                .setReversed(false)
+                .UNSTABLE_addDisplacementMarkerOffset(7, () -> {
+//                                            intake
+                    moveExtendo(0.04);
+                })
+                .lineToLinearHeading(new Pose2d(42,-36.5, Math.toRadians(29)))
+                .waitSeconds(0.1)
+
+                .UNSTABLE_addTemporalMarkerOffset(0, () -> {
+                    moveExtendo(0.18);
+                })
+                .waitSeconds(0.2)
 
                 //O-zone #3
-//                .setReversed(true)
-//                .lineToSplineHeading(new Pose2d(40,-51, Math.toRadians(310)))
-//                .UNSTABLE_addTemporalMarkerOffset(0, () -> {
-//                    intake.activeIntake.transferSample();
-//                })
-//                .UNSTABLE_addTemporalMarkerOffset(0.3, () -> {
-//                    intake.activeIntake.flipToTransfer();
-//                    intake.activeIntake.motorRollerOff();
-//                })
+                .setReversed(true)
+                .lineToSplineHeading(new Pose2d(40,-51, Math.toRadians(310)))
+                .UNSTABLE_addTemporalMarkerOffset(0, () -> {
+                    intake.activeIntake.transferSample();
+                })
+                .UNSTABLE_addTemporalMarkerOffset(0.3, () -> {
+                    intake.activeIntake.flipToTransfer();
+                    intake.activeIntake.motorRollerOff();
+                })
                 .waitSeconds(0.2)
 
 
