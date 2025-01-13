@@ -47,7 +47,7 @@ public class Robot{
     // bucketServoLeft = 5 expansion
 
     // spec:
-    // spec claw = 1 on control hub
+    // spec claw = 2 on control hub
 
 
     public DriveTrain drivetrain;
