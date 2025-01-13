@@ -178,6 +178,23 @@ public class GamepadMapping {
         //clearFailsafe.update(gamepad1.x);
     }
 
+    public void presModeUpdate() {
+        lockedMode.update(gamepad1.x);
+
+        extend.update(gamepad1.right_bumper);
+        // This is only when Souren drives
+        // retract.update(gamepad2.a);
+        clear.update(gamepad1.x); // square
+
+        // Outtake (All Gamepad2)
+        highBasket.update(gamepad1.left_bumper);
+        flipBucket.update(gamepad1.a);
+
+        intakeOnToIntake.update(gamepad1.right_trigger > 0.5);
+        toClear.update(gamepad1.left_trigger > 0.5);
+        transfer.update(gamepad1.dpad_up);
+    }
+
     public void resetIntakeControls() {
         extend.set(false);
         intakeOnToIntake.set(false);

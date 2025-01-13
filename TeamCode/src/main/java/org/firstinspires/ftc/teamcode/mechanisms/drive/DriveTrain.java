@@ -105,9 +105,9 @@ public class DriveTrain {
             moveRoboCentric(-strafe, drive, -turn);
         }
 
-//        if (controls.lockedMode.value()) {
-//            lockedHeadingMode = !lockedHeadingMode;
-//        }
+        if (controls.lockedMode.value()) {
+            lockedHeadingMode = !lockedHeadingMode;
+        }
 
         if (lockedHeadingMode) {
             if (controls.lock180) {
