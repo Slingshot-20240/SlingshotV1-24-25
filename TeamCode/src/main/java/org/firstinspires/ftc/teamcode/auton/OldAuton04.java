@@ -50,7 +50,7 @@ public class OldAuton04 extends LinearOpMode {
                 })
                 .setReversed(true)
                 //preload to bucket
-                .splineToLinearHeading(new Pose2d(-55,-57,Math.toRadians(45)),Math.toRadians(225))
+                .splineToLinearHeading(new Pose2d(-55.5,-56.5,Math.toRadians(45)),Math.toRadians(225))
                 .setReversed(false)
                 .back(5)
                 .UNSTABLE_addTemporalMarkerOffset(0, () -> {
@@ -66,14 +66,14 @@ public class OldAuton04 extends LinearOpMode {
 
                 //1st yellow to bucket
                 //.lineToConstantHeading(new Vector2d(-54, -52))
-                .forward(4)
-                .turn(Math.toRadians(35))
+                .lineToLinearHeading(new Pose2d(-55,-57.01,Math.toRadians(81)))
+//                .turn(Math.toRadians(35))
 //                .splineToLinearHeading(new Pose2d(-50,-59,Math.toRadians(90)),Math.toRadians(45))
 
                 .UNSTABLE_addTemporalMarkerOffset(0, () -> {
                     extendoIntake();
                 })
-                .forward(3)
+                .forward(3.5)
                 .UNSTABLE_addTemporalMarkerOffset(0.15, () -> {
                     intake.activeIntake.flipDownFull();
 //                    intake.motorRollerOnToIntake();
@@ -90,7 +90,7 @@ public class OldAuton04 extends LinearOpMode {
                 .splineToLinearHeading(new Pose2d(-54,-56,Math.toRadians(45)),Math.toRadians(225))
 
                 .setReversed(false)
-                .UNSTABLE_addTemporalMarkerOffset(0.2, () -> {
+                .UNSTABLE_addTemporalMarkerOffset(0.1, () -> {
                     //transfer sample
                     intake.activeIntake.transferSample();
                 })
@@ -104,7 +104,7 @@ public class OldAuton04 extends LinearOpMode {
                     })
                 .waitSeconds(1)
                 .back(5.25)
-                .UNSTABLE_addTemporalMarkerOffset(0, () -> {
+                .UNSTABLE_addTemporalMarkerOffset(0.15, () -> {
                     //flip bucket
                     outtake.bucketDeposit();
                 })
@@ -118,7 +118,8 @@ public class OldAuton04 extends LinearOpMode {
                 //MNEXT SAMPLE - second yellow
 //                .splineToLinearHeading(new Pose2d(-55,-60,Math.toRadians(90)),Math.toRadians(45))
                 .lineToConstantHeading(new Vector2d(-57, -52))
-                .turn(Math.toRadians(51))
+//                .turn(Math.toRadians(51))
+                .lineToLinearHeading(new Pose2d(-55,-52.01,Math.toRadians(100)))
                 .UNSTABLE_addTemporalMarkerOffset(0, () -> {
                     extendoIntake();
                 })
@@ -137,9 +138,9 @@ public class OldAuton04 extends LinearOpMode {
                 })
 
                 .setReversed(true)
-                .splineToLinearHeading(new Pose2d(-50,-54,Math.toRadians(45)),Math.toRadians(225))
+                .splineToLinearHeading(new Pose2d(-51,-53,Math.toRadians(45)),Math.toRadians(225))
                 .setReversed(false)
-                .UNSTABLE_addTemporalMarkerOffset(0.3, () -> {
+                .UNSTABLE_addTemporalMarkerOffset(0.1, () -> {
                     //transfer sample
                     intake.activeIntake.transferSample();
                 })
@@ -153,7 +154,7 @@ public class OldAuton04 extends LinearOpMode {
                 })
                 .waitSeconds(1)
                 .back(7)
-                .UNSTABLE_addTemporalMarkerOffset(0, () -> {
+                .UNSTABLE_addTemporalMarkerOffset(0.15, () -> {
                     //flip bucket
                     outtake.bucketDeposit();
                 })
@@ -167,7 +168,7 @@ public class OldAuton04 extends LinearOpMode {
 
                 //NEXT SAMPLE - third yellow
 //                .splineToLinearHeading(new Pose2d(-36,-29,Math.toRadians(180)),Math.toRadians(90))
-                .splineToLinearHeading(new Pose2d(-40, -40, Math.toRadians(154)), Math.toRadians(225))
+                .splineToLinearHeading(new Pose2d(-40, -40, Math.toRadians(156)), Math.toRadians(225))
                 .UNSTABLE_addTemporalMarkerOffset(0, () -> {
                     extendoIntake();
                 })
@@ -176,7 +177,7 @@ public class OldAuton04 extends LinearOpMode {
                 })
                 // TODO try commenting this out to change the last sample intake
                 .waitSeconds(1)
-                .forward(13)
+                .lineToLinearHeading(new Pose2d(-54, -47, Math.toRadians(156)))
                 .waitSeconds(0.75)
                 .UNSTABLE_addTemporalMarkerOffset(0, () -> {
                     robot.intake.activeIntake.flipUp();
@@ -189,9 +190,9 @@ public class OldAuton04 extends LinearOpMode {
                 })
 
                 .setReversed(true)
-                .splineToLinearHeading(new Pose2d(-47,-55,Math.toRadians(45)),Math.toRadians(225))
+                .splineToLinearHeading(new Pose2d(-49,-49.5,Math.toRadians(45)),Math.toRadians(225))
                 .setReversed(false)
-                .UNSTABLE_addTemporalMarkerOffset(0.2, () -> {
+                .UNSTABLE_addTemporalMarkerOffset(0.1, () -> {
                     //transfer sample
                     intake.activeIntake.transferSample();
                 })
@@ -206,7 +207,7 @@ public class OldAuton04 extends LinearOpMode {
                 .waitSeconds(1)
                 .back(7)
 
-                .UNSTABLE_addTemporalMarkerOffset(0, () -> {
+                .UNSTABLE_addTemporalMarkerOffset(0.15, () -> {
                     //flip bucket
                     outtake.bucketDeposit();
                 })
@@ -225,7 +226,7 @@ public class OldAuton04 extends LinearOpMode {
                     moveLift(1050);
                 })
                 .splineToLinearHeading(new Pose2d(-28, -12, Math.toRadians(180)), Math.toRadians(0))
-                .back(6)
+                .back(16)
                 .UNSTABLE_addTemporalMarkerOffset(0, () -> {
                     moveLift(880);
                 })

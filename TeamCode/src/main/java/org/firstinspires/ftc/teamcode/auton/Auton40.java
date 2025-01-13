@@ -79,7 +79,7 @@ public class Auton40 extends LinearOpMode {
                 })
 
 
-                .splineToSplineHeading(new Pose2d(24,-37, Math.toRadians(17.5)), Math.toRadians(17.5))
+                .splineToSplineHeading(new Pose2d(24,-36.4 , Math.toRadians(17.5)), Math.toRadians(17.5))
                 .forward(12)
                 .waitSeconds(.1)
 
@@ -147,8 +147,8 @@ public class Auton40 extends LinearOpMode {
 //                                            intake
                     moveExtendo(0.04);
                 })
-                .lineToLinearHeading(new Pose2d(42,-38, Math.toRadians(29)))
-                .waitSeconds(0.1)
+                .lineToLinearHeading(new Pose2d(42.75,-38.5, Math.toRadians(29)))
+                .waitSeconds(0.3)
 
                 .UNSTABLE_addTemporalMarkerOffset(0, () -> {
                     moveExtendo(0.18);
