@@ -17,7 +17,7 @@ public class ReLocalizer {
 
     private double offDistB = Math.sqrt(Math.pow(xBOffset, 2) + Math.pow(yBOffset, 2));
     private double offDistS = Math.sqrt(Math.pow(xSOffset, 2) + Math.pow(ySOffset, 2));
-    private double offsetAngleB = Math.atan(yBOffset/xBOffset);
+    private double offsetAngleB = Math.atan(-yBOffset/xBOffset);
     private double offsetAngleS = Math.atan(xSOffset/-ySOffset);
 
     public ReLocalizer(HardwareMap hardwareMap, IMU usedImu){
@@ -35,13 +35,13 @@ public class ReLocalizer {
 
     public double getBackDistance(double robotAngle) {
         robotAngle = Math.toRadians(robotAngle);
-        double targetDistance = Math.cos(offsetAngleB - robotAngle) * offDistB + Math.sin(robotAngle) * backDS.getDistance(DistanceUnit.INCH);
+        double targetDistance = Math.cos(offsetAngleB - robotAngle) * offDistB + Math.sin(robotAngle) * backDS.getDistance(DistanceUnit.CM);
         return targetDistance;
     }
 
     public double getSideDistance(double robotAngle) {
         robotAngle = Math.toRadians(robotAngle);
-        double targetDistance = Math.cos(offsetAngleS - robotAngle) * offDistS + Math.sin(robotAngle) * sideDS.getDistance(DistanceUnit.INCH);
+        double targetDistance = Math.cos(offsetAngleS - robotAngle) * offDistS + Math.sin(robotAngle) * sideDS.getDistance(DistanceUnit.CM);
         return targetDistance;
     }
 }

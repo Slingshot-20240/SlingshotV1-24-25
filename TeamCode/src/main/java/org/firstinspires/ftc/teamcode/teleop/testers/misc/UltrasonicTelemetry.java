@@ -35,13 +35,13 @@ public class UltrasonicTelemetry extends OpMode {
 
         // remember to go and change the equation to what you're using & the constants too
         dashboardTelemetry .addData("Back Calculated Distance", backTarget);
-        dashboardTelemetry .addData("Side Calculated Distance", backTarget);
+        //dashboardTelemetry .addData("Side Calculated Distance", sideTarget);
 
         dashboardTelemetry .addLine(" ");
 
         // these are the sensed distances
-        dashboardTelemetry .addData("Back Sensed Distance", robot.ultraSonics.backDS.getDistance(DistanceUnit.INCH));
-        dashboardTelemetry .addData("Side Sensed Distance", robot.ultraSonics.sideDS.getDistance(DistanceUnit.INCH));
+        dashboardTelemetry .addData("Back Sensed Distance", robot.ultraSonics.backDS.getDistance(DistanceUnit.CM));
+        //dashboardTelemetry .addData("Side Sensed Distance", robot.ultraSonics.sideDS.getDistance(DistanceUnit.INCH));
 
         dashboardTelemetry .addLine(" ");
 

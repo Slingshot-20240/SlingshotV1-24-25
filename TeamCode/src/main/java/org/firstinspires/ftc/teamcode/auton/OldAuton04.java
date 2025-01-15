@@ -168,14 +168,14 @@ public class OldAuton04 extends LinearOpMode {
 
                 //NEXT SAMPLE - third yellow
 //                .splineToLinearHeading(new Pose2d(-36,-29,Math.toRadians(180)),Math.toRadians(90))
-                .splineToLinearHeading(new Pose2d(-40, -40, Math.toRadians(156)), Math.toRadians(225))
+                .splineToLinearHeading(new Pose2d(-40, -38, Math.toRadians(156)), Math.toRadians(225))
                 .UNSTABLE_addTemporalMarkerOffset(0, () -> {
                     extendoIntake();
                 })
                 .UNSTABLE_addTemporalMarkerOffset(0.2, () -> {
                     intake.activeIntake.flipDownFull();
                 })
-                // TODO try commenting this out to change the last sample intake
+
                 .waitSeconds(1)
                 .lineToLinearHeading(new Pose2d(-54, -47, Math.toRadians(156)))
                 .waitSeconds(0.75)
