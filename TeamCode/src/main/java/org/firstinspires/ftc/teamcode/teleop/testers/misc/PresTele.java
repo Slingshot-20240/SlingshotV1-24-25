@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode.teleop.testers.misc;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 import org.firstinspires.ftc.teamcode.Robot;
 import org.firstinspires.ftc.teamcode.fsm.ActiveCycle;
@@ -9,6 +10,7 @@ import org.firstinspires.ftc.teamcode.mechanisms.outtake.Outtake;
 import org.firstinspires.ftc.teamcode.mechanisms.specimen.SpecimenClaw;
 import org.firstinspires.ftc.teamcode.misc.gamepad.GamepadMapping;
 
+@TeleOp
 public class PresTele extends OpMode {
     private GamepadMapping controls;
     private ActiveCycle cycle;

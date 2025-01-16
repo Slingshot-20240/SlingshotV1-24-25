@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode.mechanisms.misc;
 
+import com.qualcomm.robotcore.hardware.ColorRangeSensor;
 import com.qualcomm.robotcore.hardware.DistanceSensor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.IMU;
@@ -7,7 +8,7 @@ import com.qualcomm.robotcore.hardware.IMU;
 import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 
 public class ReLocalizer {
-    public DistanceSensor backDS;
+    public ColorRangeSensor backDS;
     public DistanceSensor sideDS;
     private IMU imu;
 
@@ -21,13 +22,13 @@ public class ReLocalizer {
     private double offsetAngleS = Math.atan(xSOffset/-ySOffset);
 
     public ReLocalizer(HardwareMap hardwareMap, IMU usedImu){
-        backDS = hardwareMap.get(DistanceSensor.class, "backDS");
+        backDS = hardwareMap.get(ColorRangeSensor.class, "backDS");
         sideDS = hardwareMap.get(DistanceSensor.class, "sideDS");
         imu = usedImu;
     }
 
     // This is for JUnit testing only
-    public ReLocalizer(DistanceSensor backDS, DistanceSensor sideDS, IMU imu) {
+    public ReLocalizer(ColorRangeSensor backDS, DistanceSensor sideDS, IMU imu) {
         this.backDS = backDS;
         this.sideDS = sideDS;
         this.imu = imu;
@@ -35,13 +36,13 @@ public class ReLocalizer {
 
     public double getBackDistance(double robotAngle) {
         robotAngle = Math.toRadians(robotAngle);
-        double targetDistance = Math.cos(offsetAngleB - robotAngle) * offDistB + Math.sin(robotAngle) * backDS.getDistance(DistanceUnit.CM);
+        double targetDistance = Math.cos(offsetAngleB - robotAngle) * offDistB + Math.sin(robotAngle) * backDS.getDistance(DistanceUnit.MM);
         return targetDistance;
     }
 
     public double getSideDistance(double robotAngle) {
         robotAngle = Math.toRadians(robotAngle);
-        double targetDistance = Math.cos(offsetAngleS - robotAngle) * offDistS + Math.sin(robotAngle) * sideDS.getDistance(DistanceUnit.CM);
+        double targetDistance = Math.cos(offsetAngleS - robotAngle) * offDistS + Math.sin(robotAngle) * sideDS.getDistance(DistanceUnit.MM);
         return targetDistance;
     }
 }

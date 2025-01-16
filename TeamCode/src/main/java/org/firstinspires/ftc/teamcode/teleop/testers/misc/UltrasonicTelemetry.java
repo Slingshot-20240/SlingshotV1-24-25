@@ -40,7 +40,7 @@ public class UltrasonicTelemetry extends OpMode {
         dashboardTelemetry .addLine(" ");
 
         // these are the sensed distances
-        dashboardTelemetry .addData("Back Sensed Distance", robot.ultraSonics.backDS.getDistance(DistanceUnit.CM));
+        dashboardTelemetry .addData("Back Sensed Distance", robot.ultraSonics.backDS.getDistance(DistanceUnit.MM));
         //dashboardTelemetry .addData("Side Sensed Distance", robot.ultraSonics.sideDS.getDistance(DistanceUnit.INCH));
 
         dashboardTelemetry .addLine(" ");
