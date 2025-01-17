@@ -80,7 +80,7 @@ public class Auton40 extends LinearOpMode {
 
 
                 .splineToSplineHeading(new Pose2d(24,-36.4 , Math.toRadians(17.5)), Math.toRadians(17.5))
-                .forward(12)
+                .forward(14)
                 .waitSeconds(.1)
 
 
@@ -157,7 +157,7 @@ public class Auton40 extends LinearOpMode {
 
                 //O-zone #3
                 .setReversed(true)
-                .lineToSplineHeading(new Pose2d(40,-51, Math.toRadians(310)))
+                .lineToSplineHeading(new Pose2d(40,-51, Math.toRadians(308)))
                 .UNSTABLE_addTemporalMarkerOffset(0, () -> {
                     intake.activeIntake.rollerMotor.setPower(.7);
                 })
