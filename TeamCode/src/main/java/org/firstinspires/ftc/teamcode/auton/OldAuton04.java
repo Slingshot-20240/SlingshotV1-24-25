@@ -95,7 +95,7 @@ public class OldAuton04 extends LinearOpMode {
                     //transfer sample
                     intake.activeIntake.transferSample();
                 })
-                .UNSTABLE_addTemporalMarkerOffset(.3, () -> {
+                .UNSTABLE_addTemporalMarkerOffset(.5, () -> {
                     intake.activeIntake.transferOff();
                     intake.activeIntake.flipUp();
                 })
@@ -145,7 +145,7 @@ public class OldAuton04 extends LinearOpMode {
                     //transfer sample
                     intake.activeIntake.transferSample();
                 })
-                .UNSTABLE_addTemporalMarkerOffset(.3, () -> {
+                .UNSTABLE_addTemporalMarkerOffset(.5, () -> {
                     intake.activeIntake.transferOff();
                     intake.activeIntake.flipUp();
                 })
@@ -154,7 +154,7 @@ public class OldAuton04 extends LinearOpMode {
                     moveLift(2550);
                 })
                 .waitSeconds(1)
-                .back(7)
+                .back(11)
                 .UNSTABLE_addTemporalMarkerOffset(0.15, () -> {
                     //flip bucket
                     outtake.bucketDeposit();
@@ -200,7 +200,7 @@ public class OldAuton04 extends LinearOpMode {
                     //transfer sample
                     intake.activeIntake.transferSample();
                 })
-                .UNSTABLE_addTemporalMarkerOffset(.6, () -> {
+                .UNSTABLE_addTemporalMarkerOffset(.5, () -> {
                     intake.activeIntake.transferOff();
                     intake.activeIntake.flipUp();
                 })
@@ -209,7 +209,7 @@ public class OldAuton04 extends LinearOpMode {
                     moveLift(2550);
                 })
                 .waitSeconds(1)
-                .back(7)
+                .back(8)
 
                 .UNSTABLE_addTemporalMarkerOffset(0.15, () -> {
                     //flip bucket
@@ -227,7 +227,7 @@ public class OldAuton04 extends LinearOpMode {
                 .setReversed(false)
                 //.splineToLinearHeading(new Pose2d(-48, -36, Math.toRadians(90)),Math.toRadians(90))
                 .UNSTABLE_addTemporalMarkerOffset(0, () -> {
-                    moveLift(1050);
+                    moveLift(950);
                 })
                 .splineToLinearHeading(new Pose2d(-28, -12, Math.toRadians(180)), Math.toRadians(0))
                 .back(12)
