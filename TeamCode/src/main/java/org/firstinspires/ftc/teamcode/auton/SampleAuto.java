@@ -15,7 +15,7 @@ import org.firstinspires.ftc.teamcode.trajectorysequence.TrajectorySequence;
 import java.util.Scanner;
 
 @Autonomous
-public class OldAuton04 extends LinearOpMode {
+public class SampleAuto extends LinearOpMode {
     private GamepadMapping controls;
     private Robot robot;
     private Intake intake;

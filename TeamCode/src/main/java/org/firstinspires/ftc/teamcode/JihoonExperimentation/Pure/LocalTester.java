@@ -1,8 +1,10 @@
 package org.firstinspires.ftc.teamcode.JihoonExperimentation.Pure;
 
 import com.acmerobotics.roadrunner.geometry.Pose2d;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 
+@Disabled
 public class LocalTester extends OpMode {
     GoofyLocalizer localizer;
 

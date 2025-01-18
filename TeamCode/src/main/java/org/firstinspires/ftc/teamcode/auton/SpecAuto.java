@@ -16,7 +16,7 @@ import org.firstinspires.ftc.teamcode.misc.gamepad.GamepadMapping;
 import org.firstinspires.ftc.teamcode.trajectorysequence.TrajectorySequence;
 
 @Autonomous
-public class Auton40 extends LinearOpMode {
+public class SpecAuto extends LinearOpMode {
 
     private GamepadMapping controls;
     private Robot robot;
