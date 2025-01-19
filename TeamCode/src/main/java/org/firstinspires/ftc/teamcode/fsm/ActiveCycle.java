@@ -89,7 +89,7 @@ public class ActiveCycle {
                     controls.resetOuttakeControls();
                     transferState = TransferState.EXTENDO_FULLY_RETRACTED;
                 }
-                if (controls.intakeOnToIntake.locked() || controls.toClear.locked()) {
+                if (controls.intakeOnToIntake.locked() || controls.toClear.locked() || controls.clearSpec.locked()) {
                     transferState = TransferState.INTAKING;
                     controls.flipBucket.set(false);
                 }
@@ -114,10 +114,20 @@ public class ActiveCycle {
                     } else {
                         intake.activeIntake.motorRollerOff();
                     }
+                } else if (controls.clearSpec.locked()) {
+                    intake.activeIntake.flipDownFull();
+                    if (controls.clear.value()) {
+                        intake.activeIntake.motorRollerOnToClear();
+                    } else {
+                        intake.activeIntake.motorRollerOff();
+                    }
                 } else if (!controls.intakeOnToIntake.locked()) {
                     intake.activeIntake.flipUp();
                     intake.activeIntake.transferOff();
                 } else if (!controls.toClear.locked()) {
+                    intake.activeIntake.flipUp();
+                    intake.activeIntake.transferOff();
+                } else if (!controls.clearSpec.locked()) {
                     intake.activeIntake.flipUp();
                     intake.activeIntake.transferOff();
                 }

@@ -6,7 +6,7 @@ import com.qualcomm.robotcore.hardware.Servo;
 public class SpecimenClaw {
     public Servo clawServo;
     // open, closed
-    private static double[] clawPositions = {1, .68};
+    private static double[] clawPositions = {1, .65};
     public SpecimenClaw(HardwareMap hwMap) {
         clawServo = hwMap.get(Servo.class, "clawServo");
     }

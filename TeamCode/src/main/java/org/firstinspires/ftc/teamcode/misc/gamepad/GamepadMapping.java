@@ -35,6 +35,7 @@ public class GamepadMapping {
     public static Toggle intakeOnToIntake;
     public static Toggle toClear;
     public static Toggle clear;
+    public static Toggle clearSpec;
 
 
     // INTAKE (CLAW)
@@ -98,6 +99,7 @@ public class GamepadMapping {
 
         pivot = new Toggle(false);
         transferHover = new Toggle(false);
+        clearSpec = new Toggle(false);
         // openClaw = new Toggle(false);
 
         // OUTTAKE
@@ -174,6 +176,7 @@ public class GamepadMapping {
         intakeOnToIntake.update(gamepad1.right_trigger > 0.5);
         toClear.update(gamepad1.left_trigger > 0.5);
         transfer.update(gamepad2.dpad_up);
+        clearSpec.update(gamepad1.left_bumper);
 
         //clearFailsafe.update(gamepad1.x);
     }

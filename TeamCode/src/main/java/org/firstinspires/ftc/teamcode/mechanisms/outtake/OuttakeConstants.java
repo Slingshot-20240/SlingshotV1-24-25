@@ -7,7 +7,7 @@ public class OuttakeConstants {
 
     // transfer ready, tilt, deposit
     //.95 for transfer previously
-    private static double[] leftBucketPositions = {.982, .75, .58};
+    private static double[] leftBucketPositions = {.982, .8, .58};
     private static double[] rightBucketPositions = {1, .773, .603};
 
     // Retracted, low basket, high basket, specimen high rack, spec mini raise
