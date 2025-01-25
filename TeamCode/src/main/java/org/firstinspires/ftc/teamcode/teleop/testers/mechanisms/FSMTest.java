@@ -5,6 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 import org.firstinspires.ftc.teamcode.Robot;
 import org.firstinspires.ftc.teamcode.fsm.ActiveCycle;
+import org.firstinspires.ftc.teamcode.fsm.archived.BoopPracticeFSM;
 import org.firstinspires.ftc.teamcode.mechanisms.intake.Intake;
 import org.firstinspires.ftc.teamcode.mechanisms.outtake.Outtake;
 import org.firstinspires.ftc.teamcode.misc.gamepad.GamepadMapping;
@@ -12,7 +13,8 @@ import org.firstinspires.ftc.teamcode.misc.gamepad.GamepadMapping;
 @TeleOp
 public class FSMTest extends OpMode {
     private GamepadMapping controls;
-    private ActiveCycle cycle;
+    private BoopPracticeFSM cycle;
+    //private ActiveCycle cycle;
     private Robot robot;
     private Intake intake;
     private Outtake outtake;
@@ -22,7 +24,8 @@ public class FSMTest extends OpMode {
     public void init() {
         controls = new GamepadMapping(gamepad1, gamepad2);
         robot = new Robot(hardwareMap, telemetry, controls);
-        cycle = new ActiveCycle(telemetry, controls, robot);
+        //cycle = new ActiveCycle(telemetry, controls, robot);
+        cycle = new BoopPracticeFSM(robot, controls);
 
         intake = robot.intake;
         outtake = robot.outtake;
@@ -57,7 +60,8 @@ public class FSMTest extends OpMode {
     @Override
     public void loop() {
         // already does dt & controls.update();
-        cycle.activeIntakeUpdate();
+        //cycle.activeIntakeUpdate();
+        cycle.update();
         //telemetry.addData("transferState", cycle.getState().stateName());
 
         long currentTime = System.currentTimeMillis();
