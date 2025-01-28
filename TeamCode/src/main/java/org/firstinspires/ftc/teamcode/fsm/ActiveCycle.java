@@ -10,6 +10,7 @@ import org.firstinspires.ftc.teamcode.mechanisms.specimen.SpecimenClaw;
 import org.firstinspires.ftc.teamcode.misc.gamepad.GamepadMapping;
 
 public class ActiveCycle {
+    // mechanisms
     private Intake intake;
     private Outtake outtake;
     private GamepadMapping controls;
