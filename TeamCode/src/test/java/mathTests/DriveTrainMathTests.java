@@ -3,6 +3,7 @@ package mathTests;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
+import com.qualcomm.robotcore.hardware.ColorRangeSensor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.DistanceSensor;
 import com.qualcomm.robotcore.hardware.IMU;
@@ -33,9 +34,9 @@ public class DriveTrainMathTests {
     @Mock
     IMU imu;
     @Mock
-    DistanceSensor backDS;
+    ColorRangeSensor backDS;
     @Mock
-    DistanceSensor sideDS;
+    ColorRangeSensor sideDS;
 
 
     private DriveTrain dt;

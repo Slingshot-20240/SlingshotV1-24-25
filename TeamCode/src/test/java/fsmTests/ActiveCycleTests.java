@@ -46,7 +46,9 @@ public class ActiveCycleTests {
     @Mock
     DcMotorEx slideLeft;
     @Mock
-    Servo bucketServo;
+    Servo rightBucketServo;
+    @Mock
+    Servo leftBucketServo;
     PIDController controller = new PIDController(0, 0, 0);
 
     // specimen claw hardware
@@ -85,7 +87,7 @@ public class ActiveCycleTests {
     public void setUp() {
         activeIntake = new ActiveIntake(rollerMotor, pivotAxon);
         intake = new Intake(rightExtendo, leftExtendo, activeIntake);
-        outtake = new Outtake(slideLeft, slideRight, bucketServo, controller);
+        outtake = new Outtake(slideLeft, slideRight, rightBucketServo, leftBucketServo, controller);
         specClaw = new SpecimenClaw(clawServo);
         drivetrain = new DriveTrain(leftFront, rightFront, leftBack, rightBack, imu);
 

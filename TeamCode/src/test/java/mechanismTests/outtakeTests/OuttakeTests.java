@@ -26,11 +26,13 @@ public class OuttakeTests {
     @Mock
     DcMotorEx outtakeSlideRight;
     @Mock
-    Servo bucketServo;
+    Servo leftBucketServo;
+    @Mock
+    Servo rightBucketServo;
 
     @BeforeEach
     public void setUp() {
-        outtake = new Outtake(outtakeSlideLeft, outtakeSlideRight, bucketServo, controller);
+        outtake = new Outtake(outtakeSlideLeft, outtakeSlideRight, rightBucketServo, leftBucketServo, controller);
     }
 
     @Test
@@ -75,7 +77,7 @@ public class OuttakeTests {
         verify(outtakeSlideRight, never() ).setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
         verify(outtakeSlideLeft, never()).setMode(DcMotorEx.RunMode.RUN_USING_ENCODER);
         verify(outtakeSlideRight, never()).setMode(DcMotorEx.RunMode.RUN_USING_ENCODER);
-        verify(bucketServo).setPosition(OuttakeConstants.BucketPositions.TRANSFER_READY.getBucketPos());
+        verify(rightBucketServo).setPosition(OuttakeConstants.BucketPositions.TRANSFER_READY.getRightBucketPos());
     }
 
     @Test
@@ -90,18 +92,18 @@ public class OuttakeTests {
     @Test
     public void testBucketToReadyForTransfer() {
         outtake.bucketToReadyForTransfer();
-        verify(bucketServo).setPosition(OuttakeConstants.BucketPositions.TRANSFER_READY.getBucketPos());
+        verify(rightBucketServo).setPosition(OuttakeConstants.BucketPositions.TRANSFER_READY.getRightBucketPos());
     }
 
     @Test
     public void testBucketDeposit() {
         outtake.bucketDeposit();
-        verify(bucketServo).setPosition(OuttakeConstants.BucketPositions.DEPOSIT.getBucketPos());
+        verify(rightBucketServo).setPosition(OuttakeConstants.BucketPositions.DEPOSIT.getRightBucketPos());
     }
 
     @Test
     public void testBucketTilt() {
         outtake.bucketTilt();
-        verify(bucketServo).setPosition(OuttakeConstants.BucketPositions.TILT.getBucketPos());
+        verify(rightBucketServo).setPosition(OuttakeConstants.BucketPositions.TILT.getRightBucketPos());
     }
 }
